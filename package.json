@@ -1,0 +1,22 @@
+{
+  "name": "clientflow-bot",
+  "version": "0.1.0",
+  "description": "Microserviço oficial de mensageria WhatsApp Cloud API e camada de inteligência clientflow-ai com isolamento por empresa",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "node --env-file-if-exists=.env src/dev-server.ts",
+    "demo": "node --env-file-if-exists=.env src/demo-cli.ts",
+    "test:supabase": "node --env-file-if-exists=.env src/test-supabase-live.ts",
+    "build": "tsc --noEmit",
+    "test": "node --test tests/clientflow.test.ts"
+  },
+  "dependencies": {
+    "zod": "^3.23.8"
+  },
+  "devDependencies": {
+    "@types/node": "^22.0.0",
+    "tsx": "^4.19.2",
+    "typescript": "^5.6.3"
+  }
+}
