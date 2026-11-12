@@ -8,7 +8,7 @@
     "dev": "node --env-file-if-exists=.env src/dev-server.ts",
     "demo": "node --env-file-if-exists=.env src/demo-cli.ts",
     "test:supabase": "node --env-file-if-exists=.env src/test-supabase-live.ts",
-    "build": "tsc --noEmit",
+    "build": "node scripts/build-vercel.mjs",
     "test": "node --test tests/clientflow.test.ts"
   },
   "dependencies": {

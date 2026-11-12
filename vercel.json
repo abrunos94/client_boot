@@ -2,7 +2,7 @@
   "version": 2,
   "outputDirectory": "public",
   "functions": {
-    "api/webhook.ts": {
+    "api/webhook.js": {
       "maxDuration": 15
     }
   }

@@ -1,6 +1,6 @@
 import assert from 'node:assert/strict';
 import { beforeEach, describe, it } from 'node:test';
-import { handleWebhookRequest } from '../api/webhook.ts';
+import { handleWebhookRequest } from '../src/webhook.ts';
 import { confirmationStore } from '../src/ai/confirmation-store.ts';
 import { defaultGeminiAdapter } from '../src/ai/provider-adapter.ts';
 import { getAuthorizedToolCatalog } from '../src/ai/tool-registry.ts';

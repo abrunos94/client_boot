@@ -1,6 +1,6 @@
 import http from 'node:http';
 import { URL } from 'node:url';
-import { handleWebhookRequest } from '../api/webhook.ts';
+import { handleWebhookRequest } from './webhook.ts';
 import { computeWebhookSignature } from './security/signature-validation.ts';
 
 const PORT = Number(process.env.PORT ?? 3000);

@@ -1,17 +1,17 @@
 import crypto from 'node:crypto';
 import type { IncomingMessage, ServerResponse } from 'node:http';
 import { URL } from 'node:url';
-import { orchestrateClientFlowAI } from '../src/ai/index.ts';
-import { logger } from '../src/lib/logger.ts';
-import { resolveActorContext } from '../src/security/authorization.ts';
-import { idempotencyStore } from '../src/security/idempotency.ts';
-import { validateWebhookSignature } from '../src/security/signature-validation.ts';
-import { resolveIntegrationByPhoneNumberId } from '../src/services/integration-resolver.ts';
-import { SupabaseTenantRestClient } from '../src/services/supabase-tenant-client.ts';
-import { resolveTenantDatabase } from '../src/services/tenant-database-router.ts';
-import { verifyWebhookSubscription } from '../src/services/webhook-verification.ts';
-import { sendWhatsAppMessage } from '../src/services/whatsapp-messaging.ts';
-import type { MetaWebhookPayload } from '../src/types/index.ts';
+import { orchestrateClientFlowAI } from './ai/index.ts';
+import { logger } from './lib/logger.ts';
+import { resolveActorContext } from './security/authorization.ts';
+import { idempotencyStore } from './security/idempotency.ts';
+import { validateWebhookSignature } from './security/signature-validation.ts';
+import { resolveIntegrationByPhoneNumberId } from './services/integration-resolver.ts';
+import { SupabaseTenantRestClient } from './services/supabase-tenant-client.ts';
+import { resolveTenantDatabase } from './services/tenant-database-router.ts';
+import { verifyWebhookSubscription } from './services/webhook-verification.ts';
+import { sendWhatsAppMessage } from './services/whatsapp-messaging.ts';
+import type { MetaWebhookPayload } from './types/index.ts';
 
 export interface WebhookHttpRequest {
   readonly method: 'GET' | 'POST' | string;
@@ -32,7 +32,7 @@ const DEFAULT_VERIFY_TOKEN =
   process.env.META_WEBHOOK_VERIFY_TOKEN ?? 'change_me_webhook_verify_token';
 
 /**
- * Handler oficial do Webhook Meta (`api/webhook.ts`) seguindo as 11 etapas obrigatórias:
+ * Handler oficial do Webhook Meta (`api/webhook.js` / `src/webhook.ts`) seguindo as 11 etapas obrigatórias:
  * 1. GET Verification Challenge
  * 2. Preservação do Raw Body no POST
  * 3. Validação criptográfica HMAC-SHA256 (`X-Hub-Signature-256`)

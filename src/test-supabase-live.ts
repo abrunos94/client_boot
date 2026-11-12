@@ -1,4 +1,4 @@
-import { handleWebhookRequest } from '../api/webhook.ts';
+import { handleWebhookRequest } from './webhook.ts';
 import { computeWebhookSignature } from './security/signature-validation.ts';
 import { getIntegrationByOrganizationId } from './services/integration-resolver.ts';
 import { SupabaseTenantRestClient } from './services/supabase-tenant-client.ts';

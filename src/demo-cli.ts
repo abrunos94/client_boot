@@ -1,4 +1,4 @@
-import { handleWebhookRequest } from '../api/webhook.ts';
+import { handleWebhookRequest } from './webhook.ts';
 import { computeWebhookSignature } from './security/signature-validation.ts';
 
 const APP_SECRET =
